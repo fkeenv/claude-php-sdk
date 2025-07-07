@@ -1,0 +1,5 @@
+{
+    "require": {
+        "saloonphp/saloon": "^3.0"
+    }
+}
