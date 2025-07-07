@@ -1,5 +1,6 @@
 {
     "require": {
-        "saloonphp/saloon": "^3.0"
+        "saloonphp/saloon": "^3.0",
+        "nesbot/carbon": "^3.10"
     }
 }
