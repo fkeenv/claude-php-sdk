@@ -1,6 +1,6 @@
 <?php
 
-namespace Fkeenv\ClaudePhpSdk\Data;
+namespace Claude\Data;
 
 use Carbon\Carbon;
 use Saloon\Contracts\DataObjects\WithResponse;

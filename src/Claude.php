@@ -1,6 +1,6 @@
 <?php
 
-namespace Fkeenv\ClaudePhpSdk\Claude;
+namespace Claude;
 
 use Saloon\Http\Auth\QueryAuthenticator;
 use Saloon\Http\Connector;
