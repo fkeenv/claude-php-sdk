@@ -5,7 +5,7 @@ A PHP SDK for integrating with the Claude AI API, built with [Saloon](https://gi
 ## Installation
 
 ```bash
-composer require your-vendor/claude-sdk
+composer require fkeenv/claude-php-sdk
 ```
 
 ## Quick Start
