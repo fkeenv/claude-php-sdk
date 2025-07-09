@@ -14,6 +14,13 @@ class CreateMessage extends Request implements HasBody
 
     protected Method $method = Method::POST;
 
+    /**
+     * @param array<int, array{role: string, content: string}> $messages
+     * @param array<string, mixed>|null $metadata
+     * @param array<int, string>|null $stopSequences
+     * @param array<int, array<string, mixed>>|null $tools
+     * @param array<string, mixed>|null $toolChoice
+     */
     public function __construct(
         protected string $model,
         protected array $messages,
@@ -44,7 +51,7 @@ class CreateMessage extends Request implements HasBody
     /**
      * Get the default body for the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function defaultBody(): array
     {
@@ -117,7 +124,7 @@ class CreateMessage extends Request implements HasBody
      *
      * @param string $model
      * @param string $system
-     * @param array $messages
+     * @param array<int, array{role: string, content: string}> $messages
      * @param integer $maxTokens
      * @return self
      */
@@ -139,7 +146,7 @@ class CreateMessage extends Request implements HasBody
      * Create a streaming message request.
      *
      * @param string $model
-     * @param array $messages
+     * @param array<int, array{role: string, content: string}> $messages
      * @param integer $maxTokens
      * @return self
      */

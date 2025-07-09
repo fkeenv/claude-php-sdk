@@ -29,7 +29,7 @@ class Claude extends Connector
     /**
      * The default headers for the Claude API requests.
      *
-     * @return array
+     * @return array<string, string>
      */
     public function defaultHeaders(): array
     {
