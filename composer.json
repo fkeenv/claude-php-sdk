@@ -1,6 +1,48 @@
 {
+    "name": "fkeenv/claude-php-sdk",
+    "description": "PHP SDK for Claude AI by Anthropic",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fkeenv"
+        }
+    ],
     "require": {
+        "php": "^8.1",
         "saloonphp/saloon": "^3.0",
         "nesbot/carbon": "^3.10"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.22",
+        "pestphp/pest": "^3.8",
+        "symfony/var-dumper": "^7.3",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Fkeenv\\Claude\\": "src/"
+        }
+    },
+    "scripts": {
+        "refactor": [
+            "./vendor/bin/rector process"
+        ],
+        "format": [
+            "./vendor/bin/pint --dirty"
+        ],
+        "format:test": [
+            "./vendor/bin/pint --dirty --test -v"
+        ],
+        "analyse": [
+            "./vendor/bin/phpstan analyse --memory-limit=-1"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
