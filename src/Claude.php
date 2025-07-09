@@ -4,12 +4,16 @@ namespace Claude;
 
 use Saloon\Http\Auth\QueryAuthenticator;
 use Saloon\Http\Connector;
+use Saloon\Http\PendingRequest;
+use Saloon\Http\Response;
 
-abstract class Claude extends Connector
+class Claude extends Connector
 {
     public function __construct(
-        protected string $apiKey
-    ) {  
+        protected string $apiKey,
+        protected string $anthropicVersion = '2023-06-01'
+    ) {
+        //  
     }
 
     /**
@@ -31,12 +35,47 @@ abstract class Claude extends Connector
     {
         return [
             'Accept' => 'application/json',
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json',
+            'x-api-key' => $this->apiKey,
+            'anthropic-version' => $this->anthropicVersion,
         ];
     }
 
-    protected function defaultAuth(): QueryAuthenticator
+    /**
+     * Boot method to configure the connector.
+     */
+    public function boot(PendingRequest $pendingRequest): void
     {
-        return new QueryAuthenticator('x-api-key', $this->apiKey);
+        // Add any global request modifications here
+        // For example, you could add retry logic, logging, etc.
+    }
+
+    /**
+     * Handle the response and provide custom error handling.
+     */
+    public function handleResponse(Response $response): Response
+    {
+        // You can add custom error handling here
+        if ($response->failed()) {
+            // Log errors, transform error responses, etc.
+        }
+
+        return $response;
+    }
+
+    /**
+     * Get the API key (useful for testing or debugging).
+     */
+    public function getApiKey(): string
+    {
+        return $this->apiKey;
+    }
+
+    /**
+     * Get the Anthropic API version.
+     */
+    public function getAnthropicVersion(): string
+    {
+        return $this->anthropicVersion;
     }
 }
