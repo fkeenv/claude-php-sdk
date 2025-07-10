@@ -4,8 +4,14 @@ A PHP SDK for integrating with the Claude AI API, built with [Saloon](https://gi
 
 ## Installation
 
+Add in your composer.json
 ```bash
-composer require fkeenv/claude-php-sdk
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/fkeenv/claude-php-sdk.git"
+    }
+]
 ```
 
 ## Quick Start
@@ -146,7 +152,3 @@ $claude = new Claude($_ENV['CLAUDE_API_KEY']);
 - PHP 8.1+
 - SaloonPHP
 - Valid Claude API key
-
-## License
-
-MIT License
